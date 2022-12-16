@@ -24,4 +24,16 @@ basket = ['apple', 'banana', 'apple', 'orange', 'pear', 'apple', 'banana']
 
 purchasingEmails = ('bob@gmail.com', 'sam@yahoo.com', 'riley@rileymail.org')
 helpEmails = ('jo@josbilling.com', 'bob@gmail.com', 'sam@yahoo.com')
-print(set(purchasingEmails) & set(helpEmails))
+# print(set(purchasingEmails) & set(helpEmails))
+
+posts = [
+    {'title': "All About Lists", "tags": ("fun", "informative", "lists")},
+    {'title': "Tuple Trouble", "tags": ("fun", "tuples")},
+    {'title': "Sparklng Sets", "tags": ("informative", "numbers")}
+]
+
+allTags = []
+for i in range(len(posts)):
+    allTags.extend(posts[i]['tags'])
+
+print(set(allTags))
