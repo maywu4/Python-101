@@ -42,11 +42,9 @@ class RegularPolygon:
     def get_perimeter(polygon):
         return polygon.num_sides * polygon.length
 
-    # @classmethod
-    # def polygon_factory(cls, lst):
-
-
-    
+    @classmethod
+    def polygon_factory(cls, lst):
+        return list([cls(item[0], item[1]) for item in lst])
 
 
 
@@ -71,6 +69,6 @@ print(RegularPolygon.get_perimeter(pentagon)) # 25
 print(RegularPolygon.get_perimeter(octagon)) # 80
 print(RegularPolygon.get_perimeter(dodecagon)) # 12
 
-# print(RegularPolygon.polygon_factory([(5, 5), (3, 2), (8, 10)])) # prints a list of 3 RegularPolygon objects
+print(RegularPolygon.polygon_factory([(5, 5), (3, 2), (8, 10)])) # prints a list of 3 RegularPolygon objects
 
-not_a_polygon = RegularPolygon(2, 5) # Exception: A polygon must have at least 3 sides.
+# not_a_polygon = RegularPolygon(2, 5) # Exception: A polygon must have at least 3 sides.
