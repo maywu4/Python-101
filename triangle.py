@@ -44,6 +44,6 @@ def scalene(sides):
     return len(all) == 3
 
 
-# print(equilateral([3,3,3]))
-# print(equilateral([2,4,6]))
+print(equilateral([3,3,3]))
+print(equilateral([2,4,6]))
 print(scalene([0.5, 0.4, 0.6]))
