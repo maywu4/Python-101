@@ -36,11 +36,27 @@ cars = ['bmw', 'audi', 'toyota', 'subaru']
 # print(cars)
 
 #temporarily sorting a list
-print('Here is the original list:')
-print(cars)
+# print('Here is the original list:')
+# print(cars)
 
-print("\nHere is the sorted list:")
-print(sorted(cars, reverse=True))
+# print("\nHere is the sorted list:")
+# print(sorted(cars, reverse=True))
 
-print("\nHere is the original list again")
-print(cars)
+# print("\nHere is the original list again")
+# print(cars)
+
+#3-8 Seeing the World
+destinations = ['Tokyo', 'Lake Como', 'Seoul', 'LA' , 'NYC']
+print(destinations)
+print(sorted(destinations))
+print(destinations)
+print(sorted(destinations, reverse=True))
+print(destinations)
+destinations.reverse()
+print(destinations)
+destinations.reverse()
+print(destinations)
+destinations.sort()
+print(destinations)
+destinations.sort(reverse=True)
+print(destinations)
