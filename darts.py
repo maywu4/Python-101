@@ -14,4 +14,15 @@
 
 
 def score(x, y):
+    out_r = 10
+    mid_r = 5
+    inner_r = 1
+    if (x**2 + y**2) <= inner_r**2:
+        return 10
+    elif (x**2 + y**2) <= mid_r**2:
+        return 5
+    elif (x**2 + y**2) <= out_r**2:
+        return 1
+    else:
+        return 0
     
