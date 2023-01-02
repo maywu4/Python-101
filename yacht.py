@@ -23,26 +23,23 @@
 
 
 # Change the values as you see fit.
-YACHT = 50
-ONES = 1
-TWOS = 2
-THREES = 3
-FOURS = 4
-FIVES = 5
-SIXES = 6
-FULL_HOUSE = None
-FOUR_OF_A_KIND = None
-LITTLE_STRAIGHT = 30
-BIG_STRAIGHT = 30
-CHOICE = None
+YACHT = 'YACHT'
+ONES = 'ONES'
+TWOS = 'TWOS'
+THREES = 'THREES'
+FOURS = 'FOURS'
+FIVES = 'FIVES'
+SIXES = 'SIXES'
+FULL_HOUSE = 'FULL_HOUSE'
+FOUR_OF_A_KIND = 'FOUR_OF_A_KIND'
+LITTLE_STRAIGHT = 'LITTLE_STRAIGHT'
+BIG_STRAIGHT = 'BIG_STRAIGHT'
+CHOICE = 'CHOICE'
 
 
 def score(dice, category):
     points = 0
-    if category == 'YACHT':
-        if len(set(dice)) == 1:
-            points += 50
-    elif category == 'ONES':
+    if category == 'ONES':
         for card in dice:
             if card == 1:
                 points += 1
@@ -66,14 +63,33 @@ def score(dice, category):
         for card in dice:
             if card == 6:
                 points += 6
-    elif category == 'FULL_HOUSE' or category == 'FOUR_OF_A_KIND':
-        if len(set(dice)) == 2:
+    elif category == 'FULL_HOUSE':
+        no_repts = set(dice)
+        if (len(set(dice)) == 2) and ((dice.count(dice[0]) == 2) or (dice.count(dice[0]) == 3)):
             points += sum(dice)
-    elif category == 'LITTLE_STRAIGHT' or category == 'BIG_STRAIGHT':
-        if len(set(dice)) == 5:
+    elif category == 'FOUR_OF_A_KIND':
+        no_repts = set(dice)
+        if (len(set(dice)) == 2) and ((dice.count(dice[0]) == 1) or (dice.count(dice[0]) == 4)):
+            highest_count = 1
+            highest_count_card = ''
+            for card in dice:
+                if dice.count(card) > highest_count:
+                    highest_count = dice.count(card)
+                    highest_count_card = card
+            points += (highest_count * highest_count_card)
+        elif len(set(dice)) == 1:
+            points += dice[0] * 4
+    elif category == 'LITTLE_STRAIGHT':
+        if set(dice) == {1,2,3,4,5}:
+            points += 30
+    elif category == 'BIG_STRAIGHT':
+        if set(dice) == {2,3,4,5,6}:
             points += 30
     elif category == 'CHOICE':
         points += sum(dice)
+    elif category == 'YACHT':
+        if len(set(dice)) == 1:
+            points += 50
     
     return points
     
